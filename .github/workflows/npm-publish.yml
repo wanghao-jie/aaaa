@@ -1,7 +1,7 @@
 name: 发布npm
 on:
   push:
-    branches: [main]
+    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,8 +15,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: 依赖安装
         run: npm install
-      - name: 构建
-        run: npm run build
-      - run: cd ./dist && npm publish
+#       - name: 构建
+#         run: npm run build
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
